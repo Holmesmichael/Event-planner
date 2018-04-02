@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EventPlannerApp</title>
-    <%= csrf_meta_tags %>
+    <title><%= yield(:title) %> | Holmey Events</title>
+      <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+      <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+        </script>
+      <![endif]-->
   </head>
 
   <body>
-    <%= yield %>
+
+      <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+          <%= link_to "Holmey Events", '#', id: "logo" %>
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Events", events_path %></li>
+                <li><%= link_to "Log in", users_path %></li>
+              </ul>
+            </nav>
+        </div>
+      </header>
+
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+
+        <footer class="footer">
+          <small>
+            Web app created by: Michael Holmes
+          </small>
+          <nav>
+            <ul>
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Events", events_path %></li>
+              <li><%= link_to "Log in", users_path %></li>
+            </ul>
+          </nav>
+        </footer>
+        <%= debug(params) if Rails.env.developtment? %>
+      </div>
   </body>
 </html>
