@@ -15,19 +15,7 @@
 
   <body>
 
-      <header class="navbar navbar-fixed-top navbar-inverse">
-        <div class="container">
-          <%= link_to "Holmey Events", '#', id: "logo" %>
-            <nav>
-              <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Home", root_path %></li>
-                <li><%= link_to "About", about_path %></li>
-                <li><%= link_to "Events", events_path %></li>
-                <li><%= link_to "Log in", users_path %></li>
-              </ul>
-            </nav>
-        </div>
-      </header>
+    <%= render 'layouts/header' %>
 
     <div class="container">
       <% flash.each do |message_type, message| %>
@@ -37,14 +25,14 @@
 
         <footer class="footer">
           <small>
-            Web app created by: Michael Holmes
+            Amazing app created by: Michael Holmes
           </small>
           <nav>
             <ul>
               <li><%= link_to "About", about_path %></li>
               <li><%= link_to "Events", events_path %></li>
-              <li><%= link_to "Log in", users_path %></li>
-            </ul>
+              <li><%= link_to "Log in", login_path %></li>
+            </ul> 
           </nav>
         </footer>
         <%= debug(params) if Rails.env.developtment? %>

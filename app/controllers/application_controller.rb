@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameter, if: :devise_controller?
+  include SessionsHelper
   
   def welcome
     render html: "Welcome to Holmey events"

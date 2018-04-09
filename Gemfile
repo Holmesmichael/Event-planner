@@ -18,6 +18,12 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Devise gem for password protecting
 gem 'devise', '~> 4.3'
+# Faker for creating test users
+gem 'faker', '~> 1.6.3'
+# Pagination to display x number of users per page
+gem 'will_paginate', '~> 3.0.0'
+# BS with Pagination
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
