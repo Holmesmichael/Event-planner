@@ -11,7 +11,7 @@
     <% if @user.events.any? %>
       <h3>Events (<%= @user.events.count %>)</h3>
       <ol class="events">
-        <%=  @user.events %>
+        <%= render @events %>
       </ol>
       <%= will_paginate @events %>
     <% end %>

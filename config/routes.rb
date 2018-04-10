@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   get  '/about',  to: 'static_pages#about'
   get  '/signup', to: 'users#new'
   get  '/login',  to: 'sessions#new'
+  get  '/events',  to: 'events#index'
   post '/login',  to: 'sessions#create'
   post '/signup', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :events
+  resources :events,              only: [:create, :destroy]   #if you delete the only part it still mostly functions... adding it makes it crash
   resources :users
   resources :account_activations, only: [:edit]
 end

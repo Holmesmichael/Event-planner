@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_santizer.permit(:sign_up, keys: [:username])
   end
 
+  private 
+
+  #confirsm a logged-in user
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
 end
