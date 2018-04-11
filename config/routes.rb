@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :events,              only: [:create, :destroy]   #if you delete the only part it still mostly functions... adding it makes it crash
+  resources :events      
   resources :users
   resources :account_activations, only: [:edit]
 end
