@@ -1,15 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="event_form">
+        <%= render 'shared/event_form' %>
+      </section>
+    </aside>
+  </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @event.content %>
-</p>
+  <% else %>
 
-<p>
-  <strong>User:</strong>
-  <%= @event.user_id %>
-</p>
+    <div class="center jumbotron">
+      <h1>List of jolly events</h1>
 
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <% end %>

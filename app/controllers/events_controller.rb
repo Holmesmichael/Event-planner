@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+
   # GET /events/1
   # GET /events/1.json
   def show
@@ -25,16 +26,12 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    @event = current_user.events.build(event_params)
+    if @event.save
+      flash[:success] = "New event created!"
+      redirect_to events_url
+    else
+      render 'static_pages/home'
     end
   end
 
@@ -59,6 +56,7 @@ class EventsController < ApplicationController
     flash[:success] = "Event deleted"
     redirect_to request.referrer || root_url
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
