@@ -1,24 +1,11 @@
-# README
+Testing Rails application....   
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Following along with book:
 
-Things you may want to cover:
+Ruby on Rails Tutorial - Fourth Edition
+-Michael Hartl
 
-* Ruby version
+Followed majority of book application with minor adjustments to play with the code.   
+Did not upload picture features to the code as the ImageMagick.  
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+App works on local server and looking forward to future applications testing new features.
